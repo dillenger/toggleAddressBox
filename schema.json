@@ -1,0 +1,13 @@
+[
+  {
+    "namespace": "toggleAddressBoxApi",
+    "functions": [
+      {
+        "name": "toggleAddressBox",
+        "type": "function",
+        "async": true,
+        "parameters": []
+      }
+    ]
+  }
+]

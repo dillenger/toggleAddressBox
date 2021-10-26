@@ -1,0 +1,8 @@
+Changelog for Toggle Address Box.
+
+1.1
+Fixed minimum box height when unhiding the box.
+Added "Show" badge to the button when the box is hidden.
+
+1.0
+First release
