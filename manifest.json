@@ -8,14 +8,8 @@
     "toggleAddressBoxApi": {
       "schema": "schema.json",
       "parent": {
-        "scopes": [
-          "addon_parent"
-        ],
-        "paths": [
-          [
-            "toggleAddressBoxApi"
-          ]
-        ],
+        "scopes": ["addon_parent"],
+        "paths": [["toggleAddressBoxApi"]],
         "script": "toggleAddressBoxApi.js"
       }
     }
@@ -34,7 +28,7 @@
     "gecko": {
       "id": "toggleAddressBox@dillinger",
       "strict_min_version": "78.0",
-      "strict_max_version": "95.0"
+      "strict_max_version": "96.0"
     }
   },
   "icons": {

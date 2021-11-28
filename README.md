@@ -1,4 +1,4 @@
-# toggleAddressBox-dillinger
+# toggleAddressBox
 About this Add-on:
 
 Temporary hide the Address Box (From, To, Subject etc.) from the Composer window.
