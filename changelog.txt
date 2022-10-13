@@ -1,8 +1,10 @@
 Changelog for Toggle Address Box.
 
 1.1
-Improved minimum box height when unhiding the box.
-Added "show" badge to the button when the box is hidden.
+Fixed box height for Thunderbird 101.
+Set minimum version to Thunderbird 101.0.
+Set maximum version to Thunderbird 102.*.
+
 
 1.0
 First release

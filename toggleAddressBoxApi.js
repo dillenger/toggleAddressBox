@@ -7,23 +7,23 @@ var toggleAddressBoxApi = class extends ExtensionCommon.ExtensionAPI {
       toggleAddressBoxApi: {
         async toggleAddressBox() {
           let recentWindow = Services.wm.getMostRecentWindow("msgcompose");
-          let addressHeadersToolbar = recentWindow.document.getElementById("MsgHeadersToolbar");
-          let addressHeadersToolbox = recentWindow.document.getElementById("headers-box");
-          if (addressHeadersToolbar.getAttribute("collapsed") != "true") {
-            addressHeadersToolbar.setAttribute("collapsed", "true");
-            addressHeadersToolbox.setAttribute("style", "max-height: 0px;");
-            console.log("collapsed");
+          let MsgHeadersToolbar = recentWindow.document.getElementById("MsgHeadersToolbar");
+          // reset the message header height when resized by dragging the splitter
+          let composeContentBox = recentWindow.document.getElementById("composeContentBox");
+          if (composeContentBox) composeContentBox.setAttribute("style", "--contactsSplitter-width: auto; --headersSplitter-height: auto;");
+          // toggle the contacts sidebar twice as a workaround to maintain its width
+          recentWindow.toggleContactsSidebar(); 
+          recentWindow.toggleContactsSidebar();
+          if (MsgHeadersToolbar.getAttribute("collapsed") != "true") {
+            MsgHeadersToolbar.setAttribute("collapsed", "true");
+            MsgHeadersToolbar.setAttribute("style", "display: none;");
           } else {
-            addressHeadersToolbar.removeAttribute("collapsed");
-            addressHeadersToolbar.setAttribute("style", "min-height: 115px;");
-            addressHeadersToolbox.removeAttribute("style");
-            console.log("expanded");
+            MsgHeadersToolbar.removeAttribute("collapsed");
+            MsgHeadersToolbar.setAttribute("style", "min-height: 115px;");
           }
           recentWindow.addEventListener("unload", function(event) {
-            addressHeadersToolbar.removeAttribute("collapsed");
-            addressHeadersToolbar.setAttribute("style", "min-height: 115px;");
-            addressHeadersToolbox.removeAttribute("style");
-            console.log("unloaded");
+            MsgHeadersToolbar.removeAttribute("collapsed");
+            MsgHeadersToolbar.setAttribute("style", "min-height: 115px;");
           });
         },
       },
@@ -33,11 +33,9 @@ var toggleAddressBoxApi = class extends ExtensionCommon.ExtensionAPI {
   onShutdown(isAppShutdown) {
   if (isAppShutdown) return;
     for (let window of Services.wm.getEnumerator("msgcompose")) {
-      let addressHeadersToolbar = window.document.getElementById("MsgHeadersToolbar");
-      let addressHeadersToolbox = window.document.getElementById("headers-box");
-      addressHeadersToolbar.removeAttribute("collapsed");
-      addressHeadersToolbar.setAttribute("style", "min-height: 115px;");
-      addressHeadersToolbox.removeAttribute("style");
+      let MsgHeadersToolbar = window.document.getElementById("MsgHeadersToolbar");
+      MsgHeadersToolbar.removeAttribute("collapsed");
+      MsgHeadersToolbar.setAttribute("style", "min-height: 115px;");
     }
   }
 };
