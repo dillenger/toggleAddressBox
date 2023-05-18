@@ -1,5 +1,5 @@
 var { ExtensionCommon } = ChromeUtils.import("resource://gre/modules/ExtensionCommon.jsm");
-var { Services } = ChromeUtils.import("resource://gre/modules/Services.jsm");
+var Services = globalThis.Services || ChromeUtils.import("resource://gre/modules/Services.jsm");
 
 var toggleAddressBoxApi = class extends ExtensionCommon.ExtensionAPI {
   getAPI(context) {
@@ -12,7 +12,7 @@ var toggleAddressBoxApi = class extends ExtensionCommon.ExtensionAPI {
           let composeContentBox = recentWindow.document.getElementById("composeContentBox");
           if (composeContentBox) composeContentBox.setAttribute("style", "--contactsSplitter-width: auto; --headersSplitter-height: auto;");
           // toggle the contacts sidebar twice as a workaround to maintain its width
-          recentWindow.toggleContactsSidebar(); 
+          recentWindow.toggleContactsSidebar();
           recentWindow.toggleContactsSidebar();
           if (MsgHeadersToolbar.getAttribute("collapsed") != "true") {
             MsgHeadersToolbar.setAttribute("collapsed", "true");
