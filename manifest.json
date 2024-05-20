@@ -24,11 +24,11 @@
     "default_label": "Address Box",
     "default_icon": "toggleAddressBox.png"
   },
-  "applications": {
+  "browser_specific_settings": {
     "gecko": {
       "id": "toggleAddressBox@dillinger",
       "strict_min_version": "101.0",
-      "strict_max_version": "127.*"
+      "strict_max_version": "128.*"
     }
   },
   "icons": {
