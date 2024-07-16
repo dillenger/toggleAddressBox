@@ -28,7 +28,7 @@
     "gecko": {
       "id": "toggleAddressBox@dillinger",
       "strict_min_version": "101.0",
-      "strict_max_version": "129.*"
+      "strict_max_version": "130.*"
     }
   },
   "icons": {
