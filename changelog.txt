@@ -2,6 +2,8 @@ Changelog for Toggle Address Box.
 
 1.2
 ESMified the add-on.
+Set minimum version to Thunderbird 115.0.
+Set maximum version to Thunderbird 136.*.
 
 1.1
 Fixed box height for Thunderbird 101.
