@@ -3,7 +3,7 @@
   "name": "Toggle Address Box",
   "description": "Adds an Address Box button, toggles the Address Box in the Composer window",
   "homepage_url": "https://addons.thunderbird.net/en-US/thunderbird/addon/toggle-address-box/",
-  "version": "1.2",
+  "version": "1.3",
   "experiment_apis": {
     "toggleAddressBoxApi": {
       "schema": "schema.json",
@@ -28,7 +28,7 @@
     "gecko": {
       "id": "toggleAddressBox@dillinger",
       "strict_min_version": "115.0",
-      "strict_max_version": "136.*"
+      "strict_max_version": "*"
     }
   },
   "icons": {
